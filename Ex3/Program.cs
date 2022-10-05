@@ -109,6 +109,13 @@ namespace Ex3
                     return size;
                 }
             }
+            public IEnumerator<TValue> GetEnumerator()
+            {
+                for (int i = 0; i < size; ++i)
+                {
+                    yield return values[i];
+                }
+            }
         }
         static void Main(string[] args)
         {
@@ -125,6 +132,11 @@ namespace Ex3
             lol.Add(arr3, arr4);
             Console.WriteLine(lol.Size);
             lol.Print();
+            Console.WriteLine("\n\n");
+            foreach(string elem in lol)
+            {
+                Console.WriteLine(elem);
+            }
         }
     }
 }
