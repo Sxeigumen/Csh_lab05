@@ -106,6 +106,7 @@ namespace Ex3
             {
                 get
                 {
+                    Console.WriteLine("Размер: ");
                     return size;
                 }
             }
@@ -120,23 +121,39 @@ namespace Ex3
         static void Main(string[] args)
         {
             int[] arr1 = new int[] { 1, 44, 55, 99, 10};
-            string[] arr2 = new string[] { "art", "usd", "333", "marc", "22dc" };
+            string[] arr2 = new string[] { "art", "usd", "333", "marc", "c++" };
 
-            MyDictionary<int, string> lol = new MyDictionary<int, string>(arr1, arr2);
-            Console.WriteLine(lol.Size);
-            lol.Print();
+            MyDictionary<int, string> intString = new MyDictionary<int, string>(arr1, arr2);
+            Console.WriteLine(intString.Size);
+            intString.Print();
+            Console.WriteLine("======================");
 
             int[] arr3 = new int[] { 6, 34, 88, 121, 46 };
-            string[] arr4 = new string[] { "tj", "whrv", "whois", "344vfb", "ftp" };
+            string[] arr4 = new string[] { "js", "go", "python", "java", "c#" };
 
-            lol.Add(arr3, arr4);
-            Console.WriteLine(lol.Size);
-            lol.Print();
-            Console.WriteLine("\n\n");
-            foreach(string elem in lol)
+            intString.Add(arr3, arr4);
+            Console.WriteLine(intString.Size);
+            intString.Print();
+            Console.WriteLine("======================");
+
+            foreach(string elem in intString)
             {
                 Console.WriteLine(elem);
             }
+            Console.WriteLine("======================");
+
+            
+            string[] stringKey = new string[] { "one", "two", "three", "four", "five" };
+            double[] doubleVal = new double[] { 1.22, 9.323, 8.901, 99, 10.101010 };
+
+            MyDictionary<string, double> stringDouble = new MyDictionary<string, double>(stringKey, doubleVal);
+            foreach (double elem in stringDouble)
+            {
+                Console.WriteLine(elem);
+            }
+            Console.WriteLine("======================");
+
+            Console.WriteLine(stringDouble["two"]);
         }
     }
 }
